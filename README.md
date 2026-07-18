@@ -148,8 +148,6 @@ firebase deploy --only hosting
 | 작가 태그 탭 | 단일 작가 태그 관리 (이름, 화풍, 예시 이미지, 메모) |
 | 그깍(조합) 탭 | 작가 태그 조합 관리 — 메인/부정 프롬프트, Steps·Prompt Guidance·Sampler 설정, Advanced(Rescale·Noise Schedule), 화풍/예시 이미지/즐겨찾기까지 작가 태그와 동일하게 지원. 별도 Firestore 컬렉션(`combos`)에 저장 |
 
-> EXIF/PNG 메타데이터 자동 추출 기능은 제거되었습니다. 태그와 조합은 모두 수동으로 입력합니다.
-
 ---
 
 ## 7. 폴더 구조
@@ -176,11 +174,6 @@ firebase.json      Hosting/Firestore 배포 설정
 
 ## 9. 기존에 이미 배포하셨다면 (업데이트 안내)
 
-이번 업데이트로 Firestore 컬렉션이 하나(`combos`) 늘었습니다. 기존 프로젝트를 이미 배포하셨다면:
+업데이트가 진행된 경우, 변경된 파일을 다운로드받아 기존 파일을 교체하고, 업데이트 안내에 따라 `npm run build`→ `firebase deploy --only hosting`로 재배포
 
-1. 이 폴더로 파일을 덮어쓴 후 `npm install` 다시 실행 (새 패키지 `@dnd-kit/*`가 추가됨, `exifr`는 제거됨)
-2. `firestore.rules`에 `combos` 컬렉션 규칙이 추가되었으니, Firebase 콘솔 규칙 화면에 다시 붙여넣고 게시(Publish)
-3. `npm run build` → `firebase deploy --only hosting`로 재배포
-
-기존에 저장해두신 작가 태그 데이터는 그대로 유지됩니다.
-
+기존에 업로드한 내용들은 그대로 남아 있습니다.
